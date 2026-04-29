@@ -18,32 +18,27 @@ export default function CurrencyPicker({
         <View style={styles.container}>
             <Text style={styles.label}>{label}</Text>
             <View style={styles.pickerWrapper}>
-            <Picker selectedValue={value} onValueChange={(value) => onChange(String(value))}>
-                {currencies.map((currency) => (
-                    <Picker.Item
-                        key={currency}
-                        label={`${currency}`}
-                        value={currency}
-                    />
-                ))}
-            </Picker>
+                <Picker
+                    selectedValue={value}
+                    onValueChange={(val) => onChange(String(val))}
+                    mode="dropdown"
+                >
+                    {currencies.map((currency) => (
+                        <Picker.Item key={currency} label={currency} value={currency} />
+                    ))}
+                </Picker>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginVertical: 8,
-        flexDirection: 'row',
-        alignItems: 'center', // Centers label and picker vertically
-    },
-    label: {
-        fontWeight: '600',
-        marginRight: 20,
-        fontSize: 22
-    },
+    container: { marginVertical: 20 },
+    label: { fontWeight: '600', marginBottom: 4 },
     pickerWrapper: {
-        flex: 1,
+        height: 100,
+        justifyContent: 'center',
+        borderRadius: 8,
+        overflow: 'hidden',
     },
 });
