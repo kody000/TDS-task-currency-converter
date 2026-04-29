@@ -2,6 +2,8 @@
 
 Start the Expo development server:
 
+npm i
+
 npx expo start
 
 Then choose where to run it:
