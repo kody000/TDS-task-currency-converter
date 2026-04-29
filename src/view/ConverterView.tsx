@@ -1,16 +1,22 @@
-import {View, Text, StyleSheet, } from 'react-native';
+import {View, Text, StyleSheet, Button,} from 'react-native';
 import {useCurrencies} from "../hooks/useCurrencies";
+import CurrencyPicker from "../components/CurrencyPicker";
+import {useState} from "react";
 
 export default function ConverterScreen() {
     const {currencies, loading: loadingCurrencies, error} = useCurrencies()
+    const [from, setFrom] = useState<string>(currencies[0] || 'USD');
+    const [to, setTo] = useState<string>('EUR');
+    const [amount, setAmount] = useState<string>(1);
 
-    console.log(currencies)
-    console.log(loadingCurrencies)
-    console.log(error)
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Currency Converter</Text>
-            <Text style={styles.title}></Text>
+            <CurrencyPicker label="From" value={from} onChange={setFrom} currencies={currencies} />
+            <Button title="Swap" onPress={() => console.log('swapping')} />
+            <CurrencyPicker label="To" value={to} onChange={setTo} currencies={currencies} />
         </View>
     );
 }

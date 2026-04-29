@@ -1,4 +1,5 @@
 import {CURRENCY_BEACON_API_KEY} from '@env';
+import {CurrencyResponse} from "../types";
 
 const BASE_URL = 'https://api.currencybeacon.com/v1';
 
@@ -18,7 +19,7 @@ const request = async <T>(endpoint: string, params?: Record<string, string | num
     return (data.response ?? data) as T;
 }
 
-export const fetchCurrencies = (): Promise<any> => {
+export const fetchCurrencies = (): Promise<CurrencyResponse> => {
     return request(`/latest`)
 }
 

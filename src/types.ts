@@ -1,9 +1,10 @@
-export interface Currency {
-    id: number;
-    name: string;
-    short_code: string;
-    code: string;
-    symbol: string;
+type Rates = {
+    [key: string]: number;}
+
+export interface CurrencyResponse {
+    base: string;
+    date: string;
+    rates: Rates[]
 }
 
 export interface ConvertResponse {
