@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ConverterScreen from "./src/view/ConverterView";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <ConverterScreen/>
       <StatusBar style="auto" />
     </View>
   );
